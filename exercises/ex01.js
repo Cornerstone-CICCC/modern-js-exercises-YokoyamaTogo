@@ -1,5 +1,5 @@
 /*
-In this exercise, we will be given an array of 2 or more numbers. 
+In this exercise, we will be given an array of 2 or more numbers.
 We will then have to find the two largest numbers in that array, and sum them together.
 
 Instruction
@@ -7,8 +7,9 @@ Create a function named sumLargestNumbers that will receive an array of numbers 
 */
 
 const sumLargestNumbers = function (data) {
-  // Put your solution here
-  return 11;
+  data.sort((a, b) => b - a)
+  const result = data[0] + data[1]
+  return result
 };
 
 console.log(sumLargestNumbers([1, 10])); // 11
