@@ -1,5 +1,7 @@
 /*
-Welcome back to Codeville! The citizens of Codeville seem pleased with all the upgrades your administration has been making to the local infrastructure, and they want more! The parking lot in the Codeville Devtropolis Shopping Mall needs an upgrade, and you've decided this is the perfect opportunity to install a smart parking system.
+Welcome back to Codeville!
+The citizens of Codeville seem pleased with all the upgrades your administration has been making to the local infrastructure,
+and they want more! The parking lot in the Codeville Devtropolis Shopping Mall needs an upgrade, and you've decided this is the perfect opportunity to install a smart parking system.
 
 The system will use special parking sensors to keep track of all parking spots and monitor which ones are available. Every time a vehicle enters the parking lot, the system directs them to an available spot for their particular vehicle type, or notifies them that no spots are available.
 
@@ -20,8 +22,25 @@ Note: There may be multiple available spots for a particular vehicle. It does no
 */
 
 const whereCanIPark = function (spots, vehicle) {
-  // Code here!
-};
+  const availableSpotsByVehicle = {
+    regular: ["R"],
+    small: ["R", "S"],
+    motorcycle: ["R", "S", "M"],
+  }
+
+  const allowedSpots = availableSpotsByVehicle[vehicle]
+
+  for (let y = 0; y < spots.length; y += 1) {
+    for (let x = 0; x < spots[y].length; x += 1) {
+      const spot = spots[y][x]
+      if (allowedSpots.includes(spot)) {
+        return [x, y]
+      }
+    }
+  }
+
+  return false
+}
 
 console.log(
   whereCanIPark(
