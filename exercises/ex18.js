@@ -23,7 +23,19 @@ Create a function named squareCode that will receive a message, and return the s
 */
 
 const squareCode = function (message) {
-  // Put your solution here
+  const noSpaceText = message.split(" ").join("")
+  const colNum = Math.ceil(Math.sqrt(noSpaceText.length))
+  const columns = []
+
+  for (let col = 0; col < colNum; col++) {
+    let word = ""
+    for (let i = col; i < noSpaceText.length; i += colNum) {
+      word += noSpaceText[i]
+    }
+    columns.push(word)
+  }
+
+  return columns.join(" ")
 };
 
 console.log(squareCode("chill out")); // clu hlt io
