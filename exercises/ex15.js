@@ -5,12 +5,20 @@ Create a function named organizeInstructors that will receive an array of instru
 
 {
   CourseName: [instructors]
-} 
+}
 */
 
 const organizeInstructors = function (instructors) {
-  // Put your solution here
-};
+  const result = {}
+
+  for ({ name, course } of instructors) {
+    console.log(name, course)
+    if (!result[course]) result[course] = []
+    result[course].push(name)
+  }
+
+  return result
+}
 
 console.log(
   organizeInstructors([
@@ -20,6 +28,9 @@ console.log(
     { name: "Donald", course: "Web" },
   ])
 ); // { iOS: ["Samuel"], Web: ["Victoria", "Karim", "Donald"]}
+
+console.log("---------")
+
 console.log(
   organizeInstructors([
     { name: "Brendan", course: "Blockchain" },
